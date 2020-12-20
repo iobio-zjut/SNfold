@@ -1,0 +1,16 @@
+-in:file:fasta ./input_files/fasta
+-in:file:frag3 ./input_files/aat000_03_05.200_v1_3
+-in:file:frag9 ./input_files/aat000_09_05.200_v1_3
+
+-in:file:native ./input_files/native.pdb
+
+-abinitio:relax
+-nstruct 1
+-out:pdb
+
+-use_filters true
+-abinitio::increase_cycles 10
+-abinitio::rg_reweight 0.5
+-abinitio::rsd_wt_helix 0.5
+-abinitio::rsd_wt_loop 0.5
+-relax::fast
