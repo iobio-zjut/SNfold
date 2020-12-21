@@ -30,8 +30,8 @@ Please Follow the below steps to install and configure SNfold:
 - Compile SNfold source code using the following commands:
 
 ```
- $ cd $ROSETTA3/main/source/
- $ ./scons.py AbinitioRelax -j<NumOfJobs> mode=release bin
+ $> cd $ROSETTA3/main/source/
+ $> ./scons.py AbinitioRelax -j<NumOfJobs> mode=release bin
 ```
 
 ## 2. INPUT
@@ -50,7 +50,7 @@ Please follow the below steps to run SNfold:
 - Run SNfold with the following command:
 
 ```
-   $ $ROSETTA3/main/source/bin/AbinitioRelax.default.linuxgccrelease @flags
+   $> $ROSETTA3/main/source/bin/AbinitioRelax.default.linuxgccrelease @flags
 ```
 
 - Five models are generated in the ``"output_files/"`` folder.
@@ -69,7 +69,7 @@ Output files of SNfold are stored in the ``"example/output_files/"`` folder, inc
 - ``"TMscore"`` in the ``"output_files/"`` folder can be used to calculate the accuracy of predicted models using the following commands:
 
 ```
- $ ./TMscore model_X.pdb ../input_files/native.pdb
+ $> ./TMscore model_X.pdb ../input_files/native.pdb
 ```
 
 ## 5. DISCLAIMER
