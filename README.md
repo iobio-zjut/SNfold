@@ -50,7 +50,7 @@ Please follow the below steps to run SNfold:
 - Run SNfold with the following command:
 
 ```
-   $> $ROSETTA3/main/source/bin/AbinitioRelax.default.linuxgccrelease @flags
+ $> $ROSETTA3/main/source/bin/AbinitioRelax.default.linuxgccrelease @flags
 ```
 
 - Five models are generated in the ``"output_files/"`` folder.
