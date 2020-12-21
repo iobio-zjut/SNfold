@@ -16,18 +16,21 @@
                 Email: zgj@zjut.edu.cn  
 
 ## 1. INSTALLATION
+Binaries for Linux 64 bit system has been included in the package. The Linux binary was compiled using GCC 5.4.0. Users need to have these versions of GCC compilers when using binaries.
+
 Please Follow the below steps to install and configure SNfold:
 
-- Download Rosetta3.10 source package from https://www.rosettacommons.org/software/, and extract it to ``"~/"`` directory where SNfold package is located.
+- Download Rosetta3.10 source package from https://www.rosettacommons.org/software/.
+(where `$ROSETTA3`=path-to-Rosetta)
 
-- Copy and paste ``"ClassicAbinitio.cc"`` and ``"ClassicAbinitio.hh"`` from ``"src/"`` folder in SNfold package to ``"~/Rosetta/main/source/src/protocols/abinitio/"`` folder in Rosetta.
+- Copy and paste ``"ClassicAbinitio.cc"`` and ``"ClassicAbinitio.hh"`` from ``"src/"`` folder in SNfold package to ``"$ROSETTA3/main/source/src/protocols/abinitio/"`` folder in Rosetta.
 
-- Copy and paste ``"MonteCarlo.cc"`` and ``"MonteCarlo.hh"`` from ``"src/"`` folder in SNfold package to ``"~/Rosetta/main/source/src/protocols/moves/"`` folder in Rosetta.
+- Copy and paste ``"MonteCarlo.cc"`` and ``"MonteCarlo.hh"`` from ``"src/"`` folder in SNfold package to ``"$ROSETTA3/main/source/src/protocols/moves/"`` folder in Rosetta.
 
 - Compile SNfold source code using the following commands:
 
 ```
- $ cd ~/Rosetta/main/source/
+ $ cd $ROSETTA3/main/source/
  $ ./scons.py AbinitioRelax -j<NumOfJobs> mode=release bin
 ```
 
@@ -47,13 +50,27 @@ Please follow the below steps to run SNfold:
 - Run SNfold with the following command:
 
 ```
-   $ ./run.sh
+   $ $ROSETTA3/main/source/bin/AbinitioRelax.default.linuxgccrelease @flags
 ```
 
 - Five models are generated in the ``"output_files/"`` folder.
 
+- ``"score.fsc"``, ``"S_00000001.pdb"`` and ``"default.out"`` can be deleted.
+
 ## 4. OUTPUT
-Output files of SNfold are stored in the ``"example/output_files/"`` folder, including five predicted models.
+Output files of SNfold are stored in the ``"example/output_files/"`` folder, including five predicted models (model_X.pdb).
+
+	model_1.pdb
+	model_2.pdb
+	model_3.pdb
+	model_4.pdb
+	model_5.pdb
+
+- ``"TMscore"`` in the ``"output_files/"`` folder can be used to calculate the accuracy of predicted models using the following commands:
+
+```
+ $ ./TMscore model_X.pdb ../input_files/native.pdb
+```
 
 ## 5. DISCLAIMER
 The executable software and the source code of SNfold is distributed free of charge 
